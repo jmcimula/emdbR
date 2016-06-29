@@ -2,7 +2,15 @@ setwd("~/R/emdbR/data/")
 
 #downloading data from JAEA
 
-url <- c("http://emdb.jaea.go.jp/emdb/assets/site_data/en/csv_utf8/10500010004/10500010004_", "http://emdb.jaea.go.jp/emdb/assets/site_data/en/csv_utf8/10500010003/10500010003_", "http://emdb.jaea.go.jp/emdb/assets/site_data/en/csv_utf8/10500010002/10500010002_","http://emdb.jaea.go.jp/emdb/assets/site_data/en/csv_utf8/10500010001/10500010001_", "http://emdb.jaea.go.jp/emdb/assets/site_data/en/csv_utf8/10500010000/10500010000_")
+url <- c(
+
+ "http://emdb.jaea.go.jp/emdb/assets/site_data/en/csv_utf8/10500010004/10500010004_",#2015
+ "http://emdb.jaea.go.jp/emdb/assets/site_data/en/csv_utf8/10500010003/10500010003_",#2014
+ "http://emdb.jaea.go.jp/emdb/assets/site_data/en/csv_utf8/10500010002/10500010002_",#2013
+ "http://emdb.jaea.go.jp/emdb/assets/site_data/en/csv_utf8/10500010001/10500010001_",#2012
+ "http://emdb.jaea.go.jp/emdb/assets/site_data/en/csv_utf8/10500010000/10500010000_" #2011
+ 
+ )
 
 for ( j in 1 : length(url)){
 
@@ -88,7 +96,7 @@ data = fetch(rs, n = -1)
 
 data %>%
     group_by(date, prefecture) %>%
-    summarise(dose = sum(avg_airdose_rate))
+	summarise(dose = sum(avg_airdose_rate))
 	
 
 
